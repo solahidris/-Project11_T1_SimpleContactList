@@ -3,7 +3,7 @@ import logo from "../images/logo.svg"
 
 const HeaderApp = () => {
   return (
-    <div className="bg-slate-800/90 h-screen">
+    <div>
       <div className="pt-10 flex justify-center">
         <img src={logo} className="h-20 animate-bounce" alt="logo" />
       </div>
