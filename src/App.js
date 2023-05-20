@@ -9,17 +9,23 @@ function App() {
   return (
     <div className="bg-slate-800/90 h-screen">
       <HeaderApp />
-      <div className="mx-20">
+      <div className="mx-20 text-xs">
       <p className="bg-yellow-100 text-center my-3">DO THIS I GUESS</p>
-        <p className="bg-yellow-300/90 my-3 line-through">1- have a contact list</p>
-        <p className="bg-yellow-300/90 my-3">2- fetch list of all users</p>
+        <p className="bg-orange-500 text-white my-3 line-through">1- figure this out somewhat</p>
+        <p className="bg-yellow-300/90 my-3">2- use https://jsonplaceholder.typicode.com/ for free api list</p> 
         <p className="bg-yellow-300/90 my-3">3- fetch from API</p>
-        <p className="bg-yellow-300/90 my-3">4- render each user's detail</p>
-        <p className="bg-yellow-300/90 my-3">5- user's detail have button (show age)</p>
-        <p className="bg-yellow-300/90 my-3">6- click button will show age</p>  
+        <p className="bg-yellow-300/90 my-3">4- render from API using useState and useEffect</p>
+        <p className="bg-yellow-300/90 my-3">5- create button for display a part of data from USER API rendered</p>
+        <p className="bg-yellow-300/90 my-3">6- onClick button show data</p>
+        <p className="bg-yellow-300/90 my-3">7- onClick also can hide data (useState) for show/hide</p>  
+      </div>
+
+      <div>
+        
       </div>
 
       <div className="text-center text-white bg-slate-800">
+        <p className="py-4 font-bold italic bg-slate-600">this is the normal array destructure mapping</p>
         {contactList.map((contact,index)=>(
           <div key={index}>
             <p>-- start --</p>
