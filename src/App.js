@@ -59,8 +59,8 @@ function App() {
         <p className="bg-orange-500 text-white my-3 line-through">
           5- create button for display a part of data from USER API rendered
         </p>
-        <p className="bg-yellow-300/90 my-3">6- onClick button show data - connect with api data div</p>
-        <p className="bg-yellow-300/90 my-3">
+        <p className="bg-orange-500 text-white my-3 line-through">6- onClick button show data - connect with api data div</p>
+        <p className="bg-orange-500 text-white my-3 line-through">
           7- onClick also can hide data (useState) for show/hide
         </p>
       </div>
@@ -78,14 +78,14 @@ function App() {
 
         {/* Render API to UI */}
         <ol>
-          {users
+          { users
             // limit to 3 users easier to see
             .filter((user) => user.id <= 3)
             // map each user to list items
             .map((user) => (
               <div key={user.id} className="bg-yellow-400/90 p-2 mb-2">
                 <li>{user.name}</li>
-                <li>{user.address.zipcode}</li>
+                {(showItems === true) && <li>{user.address.zipcode}</li>}
               </div>
             ))}
         </ol>
