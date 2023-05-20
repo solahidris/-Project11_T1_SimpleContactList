@@ -26,6 +26,19 @@ function App() {
     fetchUserData();
   }, []);
 
+  // Show or Hide State of list items
+  const [showItems, setShowItems]= useState(false);
+
+  // function that sets Show State to True
+  const buttonShowHideHandler = () => {
+    if (showItems === false) {
+      setShowItems(true);
+    } else {
+      setShowItems(false);
+    }
+  };
+
+
   return (
     <div className="bg-slate-800/90 h-screen">
       <HeaderApp />
@@ -43,31 +56,38 @@ function App() {
         <p className="bg-orange-500 text-white my-3 line-through">
           4- render from API using useState and useEffect
         </p>
-        <p className="bg-yellow-300/90 my-3">
+        <p className="bg-orange-500 text-white my-3 line-through">
           5- create button for display a part of data from USER API rendered
         </p>
-        <p className="bg-yellow-300/90 my-3">6- onClick button show data</p>
+        <p className="bg-yellow-300/90 my-3">6- onClick button show data - connect with api data div</p>
         <p className="bg-yellow-300/90 my-3">
           7- onClick also can hide data (useState) for show/hide
         </p>
       </div>
 
       <div className="bg-blue-300/70 p-10">
-      <p className="py-4 font-bold italic text-white bg-blue-700/80 mb-4">
+        <p className="py-4 font-bold italic text-white bg-blue-700/80 mb-4">
           this is the API Render
         </p>
+
+        {/* create a button to show and hide all the list */}
+        <button onClick={buttonShowHideHandler} className="bg-slate-300 rounded text-sm py-2 px-4 mb-4 drop-shadow-xl font-mono flex justify-center">show / hide</button>
+        {/* DELETE LATER - JUST WANT TO SHOW BUTTON STATE */}
+        <p className="bg-black text-white p-3 text-xs">"showItems" - State / Current Value</p>
+        <p className="bg-black text-white p-3 mt-1 mb-10 text-xs">{String(showItems)}</p>
+
         {/* Render API to UI */}
         <ol>
           {users
-          // limit to 3 users easier to see
-          .filter((user) => (user.id <= 3)) 
-          // map each user to list items
-          .map((user) => ( 
-            <div key={user.id}>
-              <li>{user.name}</li>
-              <li>{user.address.zipcode}</li>
-            </div>
-          ))}
+            // limit to 3 users easier to see
+            .filter((user) => user.id <= 3)
+            // map each user to list items
+            .map((user) => (
+              <div key={user.id} className="bg-yellow-400/90 p-2 mb-2">
+                <li>{user.name}</li>
+                <li>{user.address.zipcode}</li>
+              </div>
+            ))}
         </ol>
 
         <p></p>
