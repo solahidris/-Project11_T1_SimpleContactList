@@ -4,7 +4,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 function App() {
-  // normal array mapping (delete later)
+  // DELETE LATER - normal array mapping
   const contactList = [
     { fullName: "user1", age: 11 },
     { fullName: "user2", age: 22 },
@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   // Show or Hide State of list items
-  const [showItems, setShowItems]= useState(false);
+  const [showItems, setShowItems] = useState(false);
 
   // function that sets Show State to True
   const buttonShowHideHandler = () => {
@@ -37,7 +37,6 @@ function App() {
       setShowItems(false);
     }
   };
-
 
   return (
     <div className="bg-slate-800/90 h-screen">
@@ -59,33 +58,67 @@ function App() {
         <p className="bg-orange-500 text-white my-3 line-through">
           5- create button for display a part of data from USER API rendered
         </p>
-        <p className="bg-orange-500 text-white my-3 line-through">6- onClick button show data - connect with api data div</p>
+        <p className="bg-orange-500 text-white my-3 line-through">
+          6- onClick button show data - connect with api data div
+        </p>
         <p className="bg-orange-500 text-white my-3 line-through">
           7- onClick also can hide data (useState) for show/hide
         </p>
       </div>
 
       <div className="bg-blue-300/70 p-10">
+        {/* DELETE LATER - JUST A TITLE */}
         <p className="py-4 font-bold italic text-white bg-blue-700/80 mb-4">
           this is the API Render
         </p>
 
-        {/* create a button to show and hide all the list */}
-        <button onClick={buttonShowHideHandler} className="bg-slate-300 rounded text-sm py-2 px-4 mb-4 drop-shadow-xl font-mono flex justify-center">show / hide</button>
         {/* DELETE LATER - JUST WANT TO SHOW BUTTON STATE */}
-        <p className="bg-black text-white p-3 text-xs">"showItems" - State / Current Value</p>
-        <p className="bg-black text-white p-3 mt-1 mb-10 text-xs">{String(showItems)}</p>
+        <p className="bg-black text-white p-3 text-xs">
+          "showItems" - State / Current Value
+        </p>
+        <p className="bg-black text-white p-3 mt-1 mb-10 text-xs">
+          {String(showItems)}
+        </p>
+
+        {/* Contact List Title */}
+        <div>
+          <p className="tracking-widest font-bold bg-slate-300/90 border-2 border-slate-400/20 p-4 text-center mb-3 rounded-lg uppercase text-lg font-mono">
+            Contact List
+          </p>
+        </div>
+
+        {/* create a button to show and hide all the list */}
+        <div className="flex justify-end mb-3">
+          {showItems === false ? (
+            <button
+              onClick={buttonShowHideHandler}
+              className="bg-slate-400 border-2 border-slate-500/20 rounded-lg text-sm py-2 px-4 drop-shadow-xl font-mono"
+            >
+              Show Email
+            </button>
+          ) : (
+            <button
+              onClick={buttonShowHideHandler}
+              className="bg-slate-400 border-2 border-slate-500/20 rounded-lg text-sm py-2 px-4 drop-shadow-xl font-mono"
+            >
+              Hide Email
+            </button>
+          )}
+        </div>
 
         {/* Render API to UI */}
-        <ol>
-          { users
-            // limit to 3 users easier to see
-            .filter((user) => user.id <= 3)
+        <ol className="bg-slate-300 border-2 border-slate-400/20 p-4 rounded-lg font-mono text-sm text-slate-100">
+          {users
+            // limit to 5 users easier to see
+            .filter((user) => user.id <= 5)
             // map each user to list items
             .map((user) => (
-              <div key={user.id} className="bg-yellow-400/90 p-2 mb-2">
-                <li>{user.name}</li>
-                {(showItems === true) && <li>{user.address.zipcode}</li>}
+              <div
+                key={user.id}
+                className="bg-slate-500 border-2 border-slate-600/20 rounded-lg p-2 mb-2"
+              >
+                <li>Name: {user.name}</li>
+                {showItems === true && <li className="text-xs">Email: {user.email}</li>}
               </div>
             ))}
         </ol>
@@ -93,6 +126,7 @@ function App() {
         <p></p>
       </div>
 
+      {/* DELETE LATER - JUST TO TEST */}
       <div className="text-center text-white bg-slate-800">
         <p className="py-4 font-bold italic bg-slate-600">
           this is the normal array destructure mapping
@@ -107,6 +141,7 @@ function App() {
         ))}
       </div>
 
+      {/* CAN DELETE LATER - BOTTOM MARGIN BLACK */}
       <div className="py-20 bg-black"></div>
     </div>
   );

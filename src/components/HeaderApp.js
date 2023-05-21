@@ -10,8 +10,8 @@ const HeaderApp = () => {
       <div className="flex justify-center">
         <p className="font-mono text-xs text-white text-center w-[60%]">
           Build a contact list app that fetches the list of all users from API
-          and renders each user’s details on a component with “show age” button
-          which displays the age on click.
+          and renders each user’s details on a component with “show email” button
+          which displays the email on click.
         </p>
       </div>
       <p className="flex justify-center text-white p-5">
